@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.enike.fudedu.R
 import com.enike.fudedu.databinding.FragmentLoginBinding
 
@@ -29,7 +30,10 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btn.setOnClickListener { Toast.makeText(requireContext(),"hi i was clicked",Toast.LENGTH_LONG).show() }
+        binding.loginbtn.setOnClickListener {
+            val action = LoginFragmentDirections.actionLoginFragmentToRegisteration()
+            binding.loginbtn.findNavController().navigate(action)
+        }
     }
 
 

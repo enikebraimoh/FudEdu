@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="one">20</dimen>
+    <dimen name="button_height">54dp</dimen>
+    <dimen name="default_text_size">20sp</dimen>
+    <dimen name="TopMargin">23dp</dimen>
+    <dimen name="CornerRadius">4dp</dimen>
+    <dimen name="LeftMargin">10dp</dimen>
+    <dimen name="RightMargin">10dp</dimen>
+    <dimen name="large_text_size">33sp</dimen>
+    <dimen name="corner_radius">4dp</dimen>
+    <dimen name="default_spacing">60dp</dimen>
+    <dimen name="ButtonHeight">54dp</dimen>
+
 </resources>

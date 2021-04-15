@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">FudEdu</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">Hello Registration fragment</string>
+    <string name="forgot_password">Forgot password</string>
+    <string name="login">Login</string>
+    <string name="password">password</string>
+    <string name="email">Email</string>
+    <string name="the_logo">the logo</string>
+    <string name="sign_up_now">Sign Up Now.</string>
+    <string name="i_am_a_student">i am a student</string>
+    <string name="i_am_a_lecturer">i am a lecturer</string>
 </resources>

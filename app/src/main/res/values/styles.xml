@@ -1,8 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="Widget.FudEdu.DefaultTextView" parent="Widget.MaterialComponents.TextView">
-        <item name="android:maxHeight">15sp</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="Widget.FudEdu.EditTextFields" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:layout_marginTop">@dimen/TopMargin</item>
+        <item name="android:layout_marginLeft">@dimen/LeftMargin</item>
+        <item name="fontFamily">@font/opensans_semibold</item>
+        <item name="boxStrokeColor">@color/text_input_layout_stroke_color</item>
+        <item name="android:layout_marginRight">@dimen/RightMargin</item>
     </style>
+
+    <style name="Widget.FudEdu.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_marginRight">@dimen/RightMargin</item>
+        <item name="fontFamily">@font/opensans_regular</item>
+        <item name="android:layout_marginLeft">@dimen/LeftMargin</item>
+        <item name="android:layout_marginTop">@dimen/TopMargin</item>
+    </style>
+
+    <style name="Widget.FudEdu.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">@font/opensans_regular</item>
+        <item name="android:layout_marginTop">@dimen/TopMargin</item>
+        <item name="android:layout_marginRight">@dimen/RightMargin</item>
+        <item name="android:layout_marginLeft">@dimen/LeftMargin</item>
+    </style>
+
 </resources>
