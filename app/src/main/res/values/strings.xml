@@ -5,9 +5,13 @@
     <string name="forgot_password">Forgot password</string>
     <string name="login">Login</string>
     <string name="password">password</string>
+
+    <string name="confirm_password">Confirm Password</string>
     <string name="email">Email</string>
     <string name="the_logo">the logo</string>
-    <string name="sign_up_now">Sign Up Now.</string>
-    <string name="i_am_a_student">i am a student</string>
-    <string name="i_am_a_lecturer">i am a lecturer</string>
+    <string name="sign_up_now">Sign up as</string>
+    <string name="i_am_a_student">A student</string>
+    <string name="i_am_a_lecturer">A lecturer</string>
+    <string name="sign_up_as_a_student">Sign up as a Student</string>
+    <string name="sign_up_as_a_lecturer">Sign up as a Lecturer</string>
 </resources>

@@ -13,116 +13,128 @@
         tools:context=".UI.LoginFragment">
 
         <ScrollView
+            android:scrollbars="none"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:paddingBottom="50dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:layout_marginTop="60dp"
                     android:id="@+id/logo"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:contentDescription="@string/the_logo"
                     android:src="@drawable/ic_vectorlogo"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/the_logo" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.FudEdu.EditTextFields"
+                    android:layout_marginTop="50dp"
                     android:id="@+id/emailfield"
+                    style="@style/Widget.FudEdu.EditTextFields"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/logo"
-                    android:hint="@string/email">
+                    android:hint="@string/email"
+                    app:layout_constraintTop_toBottomOf="@+id/logo">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:padding="15dp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:singleLine="true"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/opensans_regular"
+                        android:padding="15dp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.FudEdu.EditTextFields"
                     android:id="@+id/passwordfield"
+                    style="@style/Widget.FudEdu.EditTextFields"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/emailfield"
-                    android:hint="@string/password">
+                    android:hint="@string/password"
+                    app:layout_constraintTop_toBottomOf="@+id/emailfield">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:padding="15dp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:singleLine="true"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/opensans_regular"
+                        android:padding="15dp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
-                    style="@style/Widget.FudEdu.TextView"
                     android:id="@+id/fogotpassword"
+                    style="@style/Widget.FudEdu.TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/forgot_password"
                     android:textColor="@color/orange"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/passwordfield"
-                    android:layout_width="wrap_content"
-                    android:text="@string/forgot_password"
-                    android:layout_height="wrap_content" />
+                    app:layout_constraintTop_toBottomOf="@+id/passwordfield" />
 
                 <com.google.android.material.button.MaterialButton
-                    style="@style/Widget.FudEdu.Button"
-                    android:padding="15dp"
-                    android:textAllCaps="false"
                     android:id="@+id/loginbtn"
+                    style="@style/Widget.FudEdu.Button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:padding="15dp"
                     android:text="@string/login"
-                    app:layout_constraintTop_toBottomOf="@id/fogotpassword"
+                    android:textAllCaps="false"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fogotpassword" />
 
                 <TextView
-                    style="@style/Widget.FudEdu.TextView"
                     android:id="@+id/signup"
-                    android:textColor="@color/orange"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/loginbtn"
+                    style="@style/Widget.FudEdu.TextView"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/sign_up_now"
-                    android:layout_height="wrap_content" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:layout_marginTop="23dp"
-                    android:layout_marginStart="@dimen/LeftMargin"
-                    android:layout_marginEnd="@dimen/RightMargin"
-                    style="?attr/materialButtonOutlinedStyle"
-                    android:padding="15dp"
-                    android:textAllCaps="false"
-                    android:id="@+id/i_am_a_student"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/i_am_a_student"
-                    app:layout_constraintTop_toBottomOf="@id/signup"
-                    app:layout_constraintEnd_toStartOf="@id/i_am_a_lecturer"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:layout_marginTop="23dp"
-                    android:layout_marginStart="@dimen/LeftMargin"
-                    android:layout_marginEnd="@dimen/RightMargin"
-                    style="?attr/materialButtonOutlinedStyle"
-                    android:padding="15dp"
-                    android:textAllCaps="false"
-                    android:id="@+id/i_am_a_lecturer"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/i_am_a_lecturer"
-                    app:layout_constraintTop_toBottomOf="@id/signup"
+                    android:textColor="@color/orange"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/i_am_a_student" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/loginbtn" />
+
+                <com.google.android.material.button.MaterialButton
+                    app:layout_constraintBaseline_toBaselineOf="@+id/i_am_a_lecturer"
+                    android:fontFamily="@font/opensans_regular"
+                    android:id="@+id/i_am_a_student"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/LeftMargin"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="@dimen/RightMargin"
+                    android:padding="15dp"
+                    android:text="@string/i_am_a_student"
+                    android:textAllCaps="false"
+                    app:layout_constraintEnd_toStartOf="@id/i_am_a_lecturer"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/signup" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:fontFamily="@font/opensans_regular"
+                    android:id="@+id/i_am_a_lecturer"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/LeftMargin"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="@dimen/RightMargin"
+                    android:padding="15dp"
+                    android:text="@string/i_am_a_lecturer"
+                    android:textAllCaps="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/i_am_a_student"
+                    app:layout_constraintTop_toBottomOf="@id/signup" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>

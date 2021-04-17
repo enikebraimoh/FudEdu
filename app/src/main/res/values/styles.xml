@@ -4,7 +4,7 @@
     <style name="Widget.FudEdu.EditTextFields" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <item name="android:layout_marginTop">@dimen/TopMargin</item>
         <item name="android:layout_marginLeft">@dimen/LeftMargin</item>
-        <item name="fontFamily">@font/opensans_semibold</item>
+        <item name="fontFamily">@font/opensans_regular</item>
         <item name="boxStrokeColor">@color/text_input_layout_stroke_color</item>
         <item name="android:layout_marginRight">@dimen/RightMargin</item>
     </style>

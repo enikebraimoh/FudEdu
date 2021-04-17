@@ -5,16 +5,25 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/loginFragment">
     <fragment
+        tools:layout="@layout/fragment_login"
         android:id="@+id/loginFragment"
         android:name="com.enike.fudedu.UI.LoginFragment"
         android:label="@string/login">
         <action
             android:id="@+id/action_loginFragment_to_registeration"
-            app:destination="@id/registeration" />
+            app:destination="@id/student_registeration" />
+        <action
+            android:id="@+id/action_loginFragment_to_lecturerRegisteration"
+            app:destination="@id/lecturerRegisteration" />
     </fragment>
     <fragment
-        android:id="@+id/registeration"
-        android:name="com.enike.fudedu.UI.Registeration"
-        android:label="Register"
-        tools:layout="@layout/fragment_registeration" />
+        android:id="@+id/student_registeration"
+        android:name="com.enike.fudedu.UI.StudentRegisteration"
+        android:label="@string/sign_up_as_a_student"
+        tools:layout="@layout/fragment_student_register" />
+    <fragment
+        tools:layout="@layout/fragment_lecturer_registeration"
+        android:id="@+id/lecturerRegisteration"
+        android:name="com.enike.fudedu.UI.LecturerRegisteration"
+        android:label="@string/sign_up_as_a_lecturer" />
 </navigation>

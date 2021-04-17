@@ -14,26 +14,39 @@ import com.enike.fudedu.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
 
-    private lateinit var binding : FragmentLoginBinding
+    private lateinit var binding: FragmentLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_login,container,false)
-        return  binding.root
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
+        return binding.root
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.loginbtn.setOnClickListener {
-            val action = LoginFragmentDirections.actionLoginFragmentToRegisteration()
-            binding.loginbtn.findNavController().navigate(action)
+
         }
+
+        binding.iAmALecturer.setOnClickListener {
+            val action = LoginFragmentDirections.actionLoginFragmentToLecturerRegisteration()
+            binding.iAmALecturer.findNavController().navigate(action)
+        }
+
+        binding.iAmAStudent.setOnClickListener {
+            val action = LoginFragmentDirections.actionLoginFragmentToRegisteration()
+            binding.iAmAStudent.findNavController().navigate(action)
+        }
+
     }
 
 
