@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "228418829364",
+    "project_id": "fud-edu",
+    "storage_bucket": "fud-edu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:228418829364:android:bfa29e688f15469bd31e61",
+        "android_client_info": {
+          "package_name": "com.enike.fudedu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "228418829364-ksvg75n4meeg64bim1ggonickkutdeur.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.enike.fudedu",
+            "certificate_hash": "4b0c4ff772357f0bb4bc6b046223e8ded085fc73"
+          }
+        },
+        {
+          "client_id": "228418829364-magsr8soedjl2em1ruc8p2chs09oi0ub.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTjlCwVS9lO7zB4vkjECgwIvL9UZ3z5YU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "228418829364-magsr8soedjl2em1ruc8p2chs09oi0ub.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

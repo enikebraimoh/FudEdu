@@ -143,6 +143,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
+                        android:id="@+id/emailfield"
                         android:inputType="textEmailAddress"
                         android:singleLine="true"
                         android:layout_height="wrap_content"
@@ -225,6 +226,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:inputType="textPassword"
+                        android:id="@+id/passwordfield"
                         android:singleLine="true"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
@@ -256,12 +258,12 @@
                 <com.google.android.material.button.MaterialButton
                     android:layout_marginBottom="20dp"
                     android:layout_marginTop="30dp"
-                    android:id="@+id/loginbtn"
+                    android:id="@+id/registerStudentsBnt"
                     style="@style/Widget.FudEdu.Button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="15dp"
-                    android:text="@string/login"
+                    android:text="@string/register"
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:textAllCaps="false"
                     app:layout_constraintEnd_toEndOf="parent"
