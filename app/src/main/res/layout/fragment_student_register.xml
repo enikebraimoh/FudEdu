@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".UI.StudentRegisteration">
+        tools:context=".UI.Registeration.StudentReg.StudentRegisteration">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -84,6 +84,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:singleLine="true"
+                        android:id="@+id/usernamefield"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
                         android:padding="15dp" />
@@ -104,6 +105,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:singleLine="true"
+                        android:id="@+id/firstnamefield"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
                         android:padding="15dp" />
@@ -123,6 +125,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
+                        android:id="@+id/lastnamefield"
                         android:singleLine="true"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
@@ -166,6 +169,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:singleLine="true"
+                        android:id="@+id/genderfield"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
                         android:padding="15dp" />
@@ -186,6 +190,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:singleLine="true"
+                        android:id="@+id/facultyfield"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
                         android:padding="15dp" />
@@ -205,6 +210,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
+                        android:id="@+id/departmentfield"
                         android:singleLine="true"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
@@ -247,6 +253,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
+                        android:id="@+id/confirmpasswordfield"
                         android:inputType="textPassword"
                         android:singleLine="true"
                         android:layout_height="wrap_content"

@@ -66,6 +66,11 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-database-ktx'
 
+    // LiveData
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+    // ViewModel
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+
 }
 
 apply plugin: 'com.google.gms.google-services'

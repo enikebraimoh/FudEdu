@@ -7,7 +7,7 @@
     <fragment
         tools:layout="@layout/fragment_login"
         android:id="@+id/loginFragment"
-        android:name="com.enike.fudedu.UI.LoginFragment"
+        android:name="com.enike.fudedu.UI.Login.LoginFragment"
         android:label="@string/login">
         <action
             android:id="@+id/action_loginFragment_to_registeration"
@@ -18,12 +18,12 @@
     </fragment>
     <fragment
         android:id="@+id/student_registeration"
-        android:name="com.enike.fudedu.UI.StudentRegisteration"
+        android:name="com.enike.fudedu.UI.Registeration.StudentReg.StudentRegisteration"
         android:label="@string/sign_up_as_a_student"
         tools:layout="@layout/fragment_student_register" />
     <fragment
         tools:layout="@layout/fragment_lecturer_registeration"
         android:id="@+id/lecturerRegisteration"
-        android:name="com.enike.fudedu.UI.LecturerRegisteration"
+        android:name="com.enike.fudedu.UI.Registeration.LecturerReg.LecturerRegisteration"
         android:label="@string/sign_up_as_a_lecturer" />
 </navigation>
