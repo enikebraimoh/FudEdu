@@ -2,7 +2,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
     <data>
 
     </data>
@@ -10,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".UI.Registeration.StudentReg.StudentRegisteration">
+        tools:context=".UI.StudentReg.StudentRegisteration">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -64,6 +63,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:singleLine="true"
+                        android:inputType="number"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
                         android:padding="15dp" />
@@ -71,20 +71,21 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/username"
+                    android:id="@+id/phonenumber"
                     style="@style/Widget.FudEdu.EditTextFields"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:hint="Username"
+                    android:hint="@string/phone_number"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/groupcode">
+                    app:layout_constraintTop_toBottomOf="@+id/lastName">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:singleLine="true"
-                        android:id="@+id/usernamefield"
+                        android:inputType="phone"
+                        android:id="@+id/phonenumberfield"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
                         android:padding="15dp" />
@@ -92,7 +93,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/FirstName"
+                    android:id="@+id/firstname"
                     style="@style/Widget.FudEdu.EditTextFields"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -100,7 +101,7 @@
                     android:hint="First Name"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/username">
+                    app:layout_constraintTop_toBottomOf="@+id/groupcode">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
@@ -113,7 +114,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/LastName"
+                    android:id="@+id/lastName"
                     style="@style/Widget.FudEdu.EditTextFields"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -121,7 +122,7 @@
                     android:hint="Last Name"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/FirstName">
+                    app:layout_constraintTop_toBottomOf="@+id/firstname">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
@@ -142,7 +143,7 @@
                     android:hint="Email"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/LastName">
+                    app:layout_constraintTop_toBottomOf="@+id/phonenumber">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
@@ -156,17 +157,19 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/Gender"
-                    style="@style/Widget.FudEdu.EditTextFields"
-                    android:layout_width="match_parent"
+                    android:id="@+id/gender"
+                    style="@style/Widget.FudEdu.DropDown"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:hint="Gender"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/faculty"
+                    app:layout_constraintEnd_toStartOf="@id/faculty"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/Email">
+                    app:layout_constraintTop_toBottomOf="@id/Email">
 
-                    <com.google.android.material.textfield.TextInputEditText
+                    <AutoCompleteTextView
+                        android:hint="Gender"
+                        android:inputType="none"
                         android:layout_width="match_parent"
                         android:singleLine="true"
                         android:id="@+id/genderfield"
@@ -178,18 +181,21 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/faculty"
-                    style="@style/Widget.FudEdu.EditTextFields"
-                    android:layout_width="match_parent"
+                    style="@style/Widget.FudEdu.DropDown"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:hint="Faculty"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/Gender">
+                    app:layout_constraintStart_toEndOf="@id/gender"
+                    app:layout_constraintTop_toBottomOf="@id/Email">
 
-                    <com.google.android.material.textfield.TextInputEditText
+                    <AutoCompleteTextView
                         android:layout_width="match_parent"
                         android:singleLine="true"
+                        android:hint="Faculty"
+                        android:inputType="none"
                         android:id="@+id/facultyfield"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
@@ -198,7 +204,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/Department"
+                    android:id="@+id/department"
                     style="@style/Widget.FudEdu.EditTextFields"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -206,7 +212,7 @@
                     android:hint="department"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/faculty">
+                    app:layout_constraintTop_toBottomOf="@id/gender">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
@@ -227,7 +233,7 @@
                     android:hint="Password"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/Department">
+                    app:layout_constraintTop_toBottomOf="@+id/department">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
@@ -261,6 +267,20 @@
                         android:padding="15dp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
+
+                <com.github.ybq.android.spinkit.SpinKitView
+                    android:id="@+id/spin_kit"
+                    android:visibility="invisible"
+                    style="@style/SpinKitView.CubeGrid"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    app:SpinKit_Color="?attr/colorPrimary"
+                    app:layout_constraintBottom_toBottomOf="@+id/registerStudentsBnt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/registerStudentsBnt"
+                    app:layout_constraintTop_toBottomOf="@+id/registerStudentsBnt"
+                    app:layout_constraintTop_toTopOf="@+id/registerStudentsBnt" />
 
                 <com.google.android.material.button.MaterialButton
                     android:layout_marginBottom="20dp"

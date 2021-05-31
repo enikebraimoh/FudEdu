@@ -51,27 +51,28 @@
                 android:layout_height="match_parent">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/username"
+                    android:id="@+id/phonenumber"
                     style="@style/Widget.FudEdu.EditTextFields"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:hint="Username"
+                    android:hint="Phone Number"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toBottomOf="@id/lastname">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
+                        android:id="@+id/phonefield"
                         android:padding="15dp"
                         android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/FirstName"
+                    android:id="@+id/firstname"
                     style="@style/Widget.FudEdu.EditTextFields"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -79,10 +80,11 @@
                     android:hint="First Name"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/username">
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
+                        android:id="@+id/firstnamefield"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
                         android:padding="15dp"
@@ -91,7 +93,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/LastName"
+                    android:id="@+id/lastname"
                     style="@style/Widget.FudEdu.EditTextFields"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -99,10 +101,11 @@
                     android:hint="Last Name"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/FirstName">
+                    app:layout_constraintTop_toBottomOf="@+id/firstname">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
+                        android:id="@+id/lastnamefield"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
                         android:padding="15dp"
@@ -111,7 +114,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/Email"
+                    android:id="@+id/email"
                     style="@style/Widget.FudEdu.EditTextFields"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -119,11 +122,12 @@
                     android:hint="Email"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/LastName">
+                    app:layout_constraintTop_toBottomOf="@+id/phonenumber">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/emailfield"
                         android:fontFamily="@font/opensans_regular"
                         android:inputType="textEmailAddress"
                         android:padding="15dp"
@@ -140,11 +144,12 @@
                     android:hint="Gender"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/Email">
+                    app:layout_constraintTop_toBottomOf="@+id/email">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/genderfield"
                         android:fontFamily="@font/opensans_regular"
                         android:padding="15dp"
                         android:singleLine="true" />
@@ -165,6 +170,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/passwordfield"
                         android:fontFamily="@font/opensans_regular"
                         android:inputType="textPassword"
                         android:padding="15dp"
@@ -186,6 +192,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/confirmpasswordfield"
                         android:fontFamily="@font/opensans_regular"
                         android:inputType="textPassword"
                         android:padding="15dp"
@@ -235,11 +242,25 @@
                             android:textColor="?attr/colorSecondary"
                             app:layout_constraintBottom_toBottomOf="parent" />
                     </LinearLayout>
-
+                    *
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <com.github.ybq.android.spinkit.SpinKitView
+                    android:id="@+id/spin_kit"
+                    android:visibility="invisible"
+                    style="@style/SpinKitView.CubeGrid"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    app:SpinKit_Color="?attr/colorPrimary"
+                    app:layout_constraintBottom_toBottomOf="@+id/lectuterregbtn"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/lectuterregbtn"
+                    app:layout_constraintTop_toBottomOf="@+id/lectuterregbtn"
+                    app:layout_constraintTop_toTopOf="@+id/lectuterregbtn" />
+
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/loginbtn"
+                    android:id="@+id/lectuterregbtn"
                     style="@style/Widget.FudEdu.Button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

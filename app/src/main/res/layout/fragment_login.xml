@@ -2,15 +2,17 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+<data>
 
-    <data>
-
-    </data>
+    <variable
+        name="viewModel"
+        type="com.enike.fudedu.Login.LoginViewModel" />
+</data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".UI.Login.LoginFragment">
+        tools:context=".Login.LoginFragment">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -36,7 +38,8 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/emailfield"
+                    android:id="@+id/email"
+                    verify_email="@{viewModel.emailError}"
                     style="@style/Widget.FudEdu.EditTextFields"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -45,6 +48,9 @@
                     app:layout_constraintTop_toBottomOf="@+id/logo">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/emailfield"
+                        android:text="@={viewModel.email}"
+                        android:inputType="textEmailAddress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
@@ -54,14 +60,17 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/passwordfield"
+                    android:id="@+id/password"
+                    verify_password="@{viewModel.passwordError}"
                     style="@style/Widget.FudEdu.EditTextFields"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/password"
-                    app:layout_constraintTop_toBottomOf="@+id/emailfield">
+                    app:layout_constraintTop_toBottomOf="@+id/email">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/passwordfield"
+                        android:text="@={viewModel.password}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
@@ -78,13 +87,28 @@
                     android:text="@string/forgot_password"
                     android:textColor="@color/orange"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/passwordfield" />
+                    app:layout_constraintTop_toBottomOf="@+id/password" />
+
+                <com.github.ybq.android.spinkit.SpinKitView
+                    android:id="@+id/spin_kit"
+                    android:visibility="invisible"
+                    style="@style/SpinKitView.CubeGrid"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    app:SpinKit_Color="?attr/colorPrimary"
+                    app:layout_constraintBottom_toBottomOf="@+id/loginbtn"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/loginbtn"
+                    app:layout_constraintTop_toBottomOf="@+id/loginbtn"
+                    app:layout_constraintTop_toTopOf="@+id/loginbtn" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/loginbtn"
                     style="@style/Widget.FudEdu.Button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:onClick="@{()->viewModel.login()}"
                     android:padding="15dp"
                     android:text="@string/login"
                     android:textAllCaps="false"

@@ -42,7 +42,6 @@ android {
 
 dependencies {
 
-    implementation 'com.google.firebase:firebase-auth:20.0.4'
     def nav_version = "2.3.1"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -65,10 +64,12 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-database-ktx'
+    implementation 'com.google.firebase:firebase-auth:20.0.4'
+
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+
 
     // LiveData
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
-    // ViewModel
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
 
 }

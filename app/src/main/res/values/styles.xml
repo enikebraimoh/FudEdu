@@ -9,6 +9,12 @@
         <item name="android:layout_marginRight">@dimen/RightMargin</item>
     </style>
 
+    <style name="Widget.FudEdu.DropDown" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+        <item name="android:layout_marginLeft">@dimen/RightMargin</item>
+        <item name="android:layout_marginRight">@dimen/RightMargin</item>
+        <item name="boxStrokeColor">@color/text_input_layout_stroke_color</item>
+    </style>
+
     <style name="Widget.FudEdu.TextView" parent="Widget.MaterialComponents.TextView">
         <item name="android:layout_marginRight">@dimen/RightMargin</item>
         <item name="fontFamily">@font/opensans_regular</item>

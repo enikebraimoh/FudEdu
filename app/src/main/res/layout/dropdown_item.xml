@@ -1,0 +1,9 @@
+<TextView android:id="@+id/textView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:text="Computing"
+    android:textSize="18sp"
+    android:padding="5dp"
+    android:fontFamily="@font/opensans_regular"
+    xmlns:android="http://schemas.android.com/apk/res/android" />

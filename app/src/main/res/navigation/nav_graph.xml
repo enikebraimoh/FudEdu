@@ -7,7 +7,7 @@
     <fragment
         tools:layout="@layout/fragment_login"
         android:id="@+id/loginFragment"
-        android:name="com.enike.fudedu.UI.Login.LoginFragment"
+        android:name="com.enike.fudedu.Login.LoginFragment"
         android:label="@string/login">
         <action
             android:id="@+id/action_loginFragment_to_registeration"
@@ -15,15 +15,33 @@
         <action
             android:id="@+id/action_loginFragment_to_lecturerRegisteration"
             app:destination="@id/lecturerRegisteration" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/student_registeration"
-        android:name="com.enike.fudedu.UI.Registeration.StudentReg.StudentRegisteration"
+        android:name="com.enike.fudedu.UI.StudentReg.StudentRegisteration"
         android:label="@string/sign_up_as_a_student"
-        tools:layout="@layout/fragment_student_register" />
+        tools:layout="@layout/fragment_student_register">
+        <action
+            android:id="@+id/action_student_registeration_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         tools:layout="@layout/fragment_lecturer_registeration"
         android:id="@+id/lecturerRegisteration"
         android:name="com.enike.fudedu.UI.Registeration.LecturerReg.LecturerRegisteration"
-        android:label="@string/sign_up_as_a_lecturer" />
+        android:label="@string/sign_up_as_a_lecturer">
+        <action
+            app:popUpToInclusive="true"
+            app:launchSingleTop="true"
+            android:id="@+id/action_lecturerRegisteration_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        tools:layout="@layout/fragment_home"
+        android:name="com.enike.fudedu.UI.Home.HomeFragment"
+        android:label="HomeFragment" />
 </navigation>
