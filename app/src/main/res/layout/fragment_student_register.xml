@@ -2,14 +2,18 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.enike.fudedu.ui.studentReg.StudentRegViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".UI.StudentReg.StudentRegisteration">
+        tools:context=".ui.studentReg.StudentRegisteration">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -37,9 +41,9 @@
 
         <ScrollView
             android:id="@+id/scrollview"
-            android:scrollbars="none"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:scrollbars="none"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -62,11 +66,12 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:singleLine="true"
-                        android:inputType="number"
+                        android:text="@={viewModel.groupcode}"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
-                        android:padding="15dp" />
+                        android:inputType="number"
+                        android:padding="15dp"
+                        android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,13 +87,14 @@
                     app:layout_constraintTop_toBottomOf="@+id/lastName">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:singleLine="true"
-                        android:inputType="phone"
                         android:id="@+id/phonenumberfield"
+                        android:text="@={viewModel.phonenumber}"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
-                        android:padding="15dp" />
+                        android:inputType="phone"
+                        android:padding="15dp"
+                        android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -104,12 +110,13 @@
                     app:layout_constraintTop_toBottomOf="@+id/groupcode">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:singleLine="true"
                         android:id="@+id/firstnamefield"
+                        android:text="@={viewModel.firstname}"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
-                        android:padding="15dp" />
+                        android:padding="15dp"
+                        android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -125,12 +132,13 @@
                     app:layout_constraintTop_toBottomOf="@+id/firstname">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
                         android:id="@+id/lastnamefield"
-                        android:singleLine="true"
+                        android:text="@={viewModel.lastname}"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
-                        android:padding="15dp" />
+                        android:padding="15dp"
+                        android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -146,13 +154,14 @@
                     app:layout_constraintTop_toBottomOf="@+id/phonenumber">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
                         android:id="@+id/emailfield"
-                        android:inputType="textEmailAddress"
-                        android:singleLine="true"
+                        android:text="@={viewModel.email}"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
-                        android:padding="15dp" />
+                        android:inputType="textEmailAddress"
+                        android:padding="15dp"
+                        android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -168,38 +177,42 @@
                     app:layout_constraintTop_toBottomOf="@id/Email">
 
                     <AutoCompleteTextView
-                        android:hint="Gender"
-                        android:inputType="none"
-                        android:layout_width="match_parent"
-                        android:singleLine="true"
+                        selectGender="@{viewModel.genderArrayAdapter}"
+                        android:text="@={viewModel.gender}"
                         android:id="@+id/genderfield"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
-                        android:padding="15dp" />
+                        android:hint="Gender"
+                        android:inputType="none"
+                        android:padding="15dp"
+                        android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/faculty"
                     style="@style/Widget.FudEdu.DropDown"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="15dp"
+                    android:layout_marginRight="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/gender"
                     app:layout_constraintTop_toBottomOf="@id/Email">
 
                     <AutoCompleteTextView
-                        android:layout_width="match_parent"
-                        android:singleLine="true"
-                        android:hint="Faculty"
-                        android:inputType="none"
+                        android:text="@={viewModel.faculty}"
+                        selectFaculty="@{viewModel.facultyArrayAdapter}"
                         android:id="@+id/facultyfield"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
-                        android:padding="15dp" />
+                        android:hint="Faculty"
+                        android:inputType="none"
+                        android:padding="15dp"
+                        android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -215,12 +228,13 @@
                     app:layout_constraintTop_toBottomOf="@id/gender">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
                         android:id="@+id/departmentfield"
-                        android:singleLine="true"
+                        android:text="@={viewModel.department}"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
-                        android:padding="15dp" />
+                        android:padding="15dp"
+                        android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -236,13 +250,14 @@
                     app:layout_constraintTop_toBottomOf="@+id/department">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:inputType="textPassword"
                         android:id="@+id/passwordfield"
-                        android:singleLine="true"
+                        android:text="@={viewModel.password}"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
-                        android:padding="15dp" />
+                        android:inputType="textPassword"
+                        android:padding="15dp"
+                        android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -258,23 +273,24 @@
                     app:layout_constraintTop_toBottomOf="@+id/firstPassword">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
                         android:id="@+id/confirmpasswordfield"
-                        android:inputType="textPassword"
-                        android:singleLine="true"
+                        android:layout_width="match_parent"
+                        android:text="@={viewModel.confirmPassword}"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
-                        android:padding="15dp" />
+                        android:inputType="textPassword"
+                        android:padding="15dp"
+                        android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.github.ybq.android.spinkit.SpinKitView
                     android:id="@+id/spin_kit"
-                    android:visibility="invisible"
                     style="@style/SpinKitView.CubeGrid"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
+                    android:visibility="invisible"
                     app:SpinKit_Color="?attr/colorPrimary"
                     app:layout_constraintBottom_toBottomOf="@+id/registerStudentsBnt"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -283,16 +299,16 @@
                     app:layout_constraintTop_toTopOf="@+id/registerStudentsBnt" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginTop="30dp"
                     android:id="@+id/registerStudentsBnt"
                     style="@style/Widget.FudEdu.Button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="20dp"
                     android:padding="15dp"
                     android:text="@string/register"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     android:textAllCaps="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/confirmPassword" />

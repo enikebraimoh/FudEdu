@@ -1,4 +1,4 @@
-package com.enike.fudedu.UI.StudentReg
+package com.enike.fudedu.ui.studentReg
 
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.enike.fudedu.R
 import com.enike.fudedu.databinding.FragmentStudentRegisterBinding
@@ -20,27 +21,21 @@ import com.google.firebase.ktx.Firebase
 class StudentRegisteration : Fragment() {
 
     private lateinit var binding: FragmentStudentRegisterBinding
-    var userAuth = Firebase.auth
-    private lateinit var database: DatabaseReference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_student_register, container, false)
+        val application = requireNotNull(this.activity).application
+        val viewModelFactory = StudentRegFactory(application)
+        val viewModel =
+            ViewModelProvider(this, viewModelFactory).get(StudentRegViewModel::class.java)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
+
         return binding.root
     }
-
-    override fun onResume() {
-        super.onResume()
-        val languages = resources.getStringArray(R.array.Faculties)
-        val gender = resources.getStringArray(R.array.Gender)
-        val languageArrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, languages)
-        val genderArrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, gender)
-        binding.facultyfield.setAdapter(languageArrayAdapter)
-        binding.genderfield.setAdapter(genderArrayAdapter)
-    }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -49,89 +44,37 @@ class StudentRegisteration : Fragment() {
             binding.toolbar.findNavController()?.popBackStack()
         }
 
-        binding.registerStudentsBnt.setOnClickListener {
-            val email = binding.emailfield.text.toString()
-            val password = binding.passwordfield.text.toString()
-            val confirmPassword = binding.confirmpasswordfield.text.toString()
-            val firstName = binding.firstnamefield.text.toString()
-            val lastName = binding.lastnamefield.text.toString()
-            val phoneNumber = binding.phonenumberfield.text.toString()
-            val gender = binding.genderfield.text.toString()
-            val faculty = binding.facultyfield.text.toString()
-            val dpt = binding.departmentfield.text.toString()
-            if (validateFirstName(firstName)) {
-                if (validateLastName(lastName)) {
-                    if (validatePhoneNUmber(phoneNumber)) {
-                        if (isEmailCorrect(email)) {
-                            if (validateGender(gender)) {
-                                if (validateFaculty(faculty)) {
-                                    if (validateDepartment(dpt)) {
-                                        if (validatePassword(password, confirmPassword)) {
-                                            binding.spinKit.visibility = View.VISIBLE
-                                            binding.registerStudentsBnt.visibility = View.INVISIBLE
-                                            createAnAccount(email, confirmPassword)
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        /* binding.registerStudentsBnt.setOnClickListener {
+             val email = binding.emailfield.text.toString()
+             val password = binding.passwordfield.text.toString()
+             val confirmPassword = binding.confirmpasswordfield.text.toString()
+             val firstName = binding.firstnamefield.text.toString()
+             val lastName = binding.lastnamefield.text.toString()
+             val phoneNumber = binding.phonenumberfield.text.toString()
+             val gender = binding.genderfield.text.toString()
+             val faculty = binding.facultyfield.text.toString()
+             val dpt = binding.departmentfield.text.toString()
+             if (validateFirstName(firstName)) {
+                 if (validateLastName(lastName)) {
+                     if (validatePhoneNUmber(phoneNumber)) {
+                         if (isEmailCorrect(email)) {
+                             if (validateGender(gender)) {
+                                 if (validateFaculty(faculty)) {
+                                     if (validateDepartment(dpt)) {
+                                         if (validatePassword(password, confirmPassword)) {
+                                             binding.spinKit.visibility = View.VISIBLE
+                                             binding.registerStudentsBnt.visibility = View.INVISIBLE
+                                             createAnAccount(email, confirmPassword)
+                                         }
+                                     }
+                                 }
+                             }
+                         }
+                     }
+                 }
+             }
+         }*/
 
-    }
-
-    private fun createAnAccount(email: String, confirmPassword: String) {
-        val phonenumber = binding.phonenumberfield.text.toString()
-        val firstname = binding.firstnamefield.text.toString()
-        val lastname = binding.lastnamefield.text.toString()
-        val gender = binding.genderfield.text.toString()
-        val faculty = binding.facultyfield.text.toString()
-        val department = binding.departmentfield.text.toString()
-        val password = binding.passwordfield.text.toString()
-        val studentModel = StudentsModel(
-            phonenumber,
-            firstname,
-            lastname,
-            email,
-            gender,
-            faculty,
-            department,
-            password
-        )
-        createAccountWithEMailPassword(email, confirmPassword, studentModel)
-    }
-
-
-    private fun createAccountWithEMailPassword(
-        email: String,
-        password: String,
-        model: StudentsModel
-    ) {
-        userAuth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener() { task ->
-                if (task.isSuccessful) {
-                    Log.d("eshoo", "createUserWithEmail:success")
-                    saveStudentsDetails(model)
-                    binding.spinKit.visibility = View.INVISIBLE
-                    binding.registerStudentsBnt.visibility = View.VISIBLE
-                    showSnackBar("Account Created Successfully ")
-
-                } else {
-                    Log.d("eshoo", "createUserWithEmail:failure", task.exception)
-                    binding.spinKit.visibility = View.INVISIBLE
-                    binding.registerStudentsBnt.visibility = View.VISIBLE
-                    showSnackBar(task.exception?.message!!)
-                }
-            }
-    }
-
-    private fun saveStudentsDetails(details: StudentsModel) {
-        database = Firebase.database.reference
-        database.child("Students Information").child(userAuth.currentUser?.uid!!).setValue(details)
-        val action = StudentRegisterationDirections.actionStudentRegisterationToHomeFragment()
-        binding.registerStudentsBnt.findNavController().navigate(action)
     }
 
     private fun showSnackBar(message: String) {
@@ -146,6 +89,7 @@ class StudentRegisteration : Fragment() {
         } else if (android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             binding.Email.isErrorEnabled = false
             true
+
         } else {
             binding.Email.isErrorEnabled = true
             binding.Email.error = "invalid email"

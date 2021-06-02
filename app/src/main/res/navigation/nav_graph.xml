@@ -7,7 +7,7 @@
     <fragment
         tools:layout="@layout/fragment_login"
         android:id="@+id/loginFragment"
-        android:name="com.enike.fudedu.Login.LoginFragment"
+        android:name="com.enike.fudedu.ui.login.LoginFragment"
         android:label="@string/login">
         <action
             android:id="@+id/action_loginFragment_to_registeration"
@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/student_registeration"
-        android:name="com.enike.fudedu.UI.StudentReg.StudentRegisteration"
+        android:name="com.enike.fudedu.ui.studentReg.StudentRegisteration"
         android:label="@string/sign_up_as_a_student"
         tools:layout="@layout/fragment_student_register">
         <action
@@ -31,7 +31,7 @@
     <fragment
         tools:layout="@layout/fragment_lecturer_registeration"
         android:id="@+id/lecturerRegisteration"
-        android:name="com.enike.fudedu.UI.Registeration.LecturerReg.LecturerRegisteration"
+        android:name="com.enike.fudedu.ui.lecturerReg.LecturerRegisteration"
         android:label="@string/sign_up_as_a_lecturer">
         <action
             app:popUpToInclusive="true"
@@ -42,6 +42,6 @@
     <fragment
         android:id="@+id/homeFragment"
         tools:layout="@layout/fragment_home"
-        android:name="com.enike.fudedu.UI.Home.HomeFragment"
+        android:name="com.enike.fudedu.ui.home.HomeFragment"
         android:label="HomeFragment" />
 </navigation>

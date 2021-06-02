@@ -1,9 +1,9 @@
-package com.enike.fudedu.Utils
+package com.enike.fudedu.utils
 
 interface DataState {
     fun loading()
     fun error(error: String)
-    fun success(message: String)
+    fun <T> success(message: T? = null)
     fun waiting()
 }
 

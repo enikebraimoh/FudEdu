@@ -1,12 +1,10 @@
-package com.enike.fudedu.UI.StudentReg
+package com.enike.fudedu.ui.Registeration.lecturerReg
 
-data class StudentsModel(
+data class LecturerDetailsModel(
     val PhoneNumber: String,
     val FirstName: String,
     val LastName: String,
     val Email: String,
     val Gender: String,
-    val Faculty: String,
-    val Department: String,
     val password: String
 )

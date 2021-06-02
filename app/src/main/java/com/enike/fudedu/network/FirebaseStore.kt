@@ -1,6 +1,4 @@
-package com.enike.fudedu.Network
-
-import com.google.firebase.auth.FirebaseAuth
+package com.enike.fudedu.network
 
 //class FirebaseStore {
 //    private val firebaseAuth: FirebaseAuth by lazy {

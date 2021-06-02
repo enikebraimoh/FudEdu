@@ -6,13 +6,13 @@
 
     <variable
         name="viewModel"
-        type="com.enike.fudedu.Login.LoginViewModel" />
+        type="com.enike.fudedu.ui.login.LoginViewModel" />
 </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Login.LoginFragment">
+        tools:context=".ui.login.LoginFragment">
 
         <ScrollView
             android:layout_width="match_parent"

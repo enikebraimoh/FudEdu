@@ -1,4 +1,4 @@
-package com.enike.fudedu.Login
+package com.enike.fudedu.ui.login
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.enike.fudedu.R
-import com.enike.fudedu.Utils.DataState
+import com.enike.fudedu.utils.DataState
 import com.enike.fudedu.databinding.FragmentLoginBinding
 import com.google.android.material.snackbar.Snackbar
 
@@ -28,7 +28,7 @@ class LoginFragment : Fragment(), DataState {
             container: ViewGroup?,
             savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
-        model = ViewModelProvider(this).get(LoginViewModel::class.java) as LoginViewModel
+        model = ViewModelProvider(this).get(LoginViewModel::class.java)
         binding.viewModel = model
         binding.lifecycleOwner = this
         model.mDatastate = this
@@ -72,11 +72,10 @@ class LoginFragment : Fragment(), DataState {
         showSnackBar(error)
     }
 
-    override fun success(message: String) {
+    override fun <T> success(message: T?) {
+        val msg = message as String
         binding.spinKit.visibility = View.INVISIBLE
         binding.loginbtn.visibility = View.VISIBLE
-        showSnackBar(message)
+        showSnackBar(msg)
     }
-
-
 }

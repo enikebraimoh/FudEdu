@@ -1,10 +1,10 @@
-package com.enike.fudedu
+package com.enike.fudedu.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupActionBarWithNavController
+import com.enike.fudedu.R
 
 class MainActivity : AppCompatActivity() {
 

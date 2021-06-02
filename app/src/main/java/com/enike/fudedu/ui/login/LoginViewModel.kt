@@ -1,10 +1,10 @@
-package com.enike.fudedu.Login
+package com.enike.fudedu.ui.login
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.enike.fudedu.Utils.DataState
+import com.enike.fudedu.utils.DataState
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
