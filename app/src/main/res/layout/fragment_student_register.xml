@@ -58,6 +58,7 @@
                     style="@style/Widget.FudEdu.EditTextFields"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    verify_field="@{viewModel.groupCodeError}"
                     android:layout_marginTop="15dp"
                     android:hint="Group Code"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -77,6 +78,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/phonenumber"
+                    verify_field="@{viewModel.phoneNumberError}"
                     style="@style/Widget.FudEdu.EditTextFields"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -100,6 +102,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/firstname"
+                    verify_field="@{viewModel.firstNameError}"
                     style="@style/Widget.FudEdu.EditTextFields"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -122,6 +125,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/lastName"
+                    verify_field="@{viewModel.lastNameError}"
                     style="@style/Widget.FudEdu.EditTextFields"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -144,6 +148,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/Email"
+                    verify_field="@{viewModel.emailError}"
                     style="@style/Widget.FudEdu.EditTextFields"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -167,6 +172,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/gender"
+                    verify_field="@{viewModel.genderError}"
                     style="@style/Widget.FudEdu.DropDown"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -192,6 +198,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/faculty"
+                    verify_field="@{viewModel.facultyError}"
                     style="@style/Widget.FudEdu.DropDown"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -218,6 +225,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/department"
+                    verify_field="@{viewModel.departmentError}"
                     style="@style/Widget.FudEdu.EditTextFields"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -240,6 +248,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/firstPassword"
+                    verify_field="@{viewModel.passwordError}"
                     style="@style/Widget.FudEdu.EditTextFields"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -263,6 +272,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/confirmPassword"
+                    verify_field="@{viewModel.confirmPasswordError}"
                     style="@style/Widget.FudEdu.EditTextFields"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -299,6 +309,7 @@
                     app:layout_constraintTop_toTopOf="@+id/registerStudentsBnt" />
 
                 <com.google.android.material.button.MaterialButton
+                    android:onClick="@{()-> viewModel.registerButton()}"
                     android:id="@+id/registerStudentsBnt"
                     style="@style/Widget.FudEdu.Button"
                     android:layout_width="match_parent"

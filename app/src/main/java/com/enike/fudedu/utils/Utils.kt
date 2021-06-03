@@ -4,7 +4,6 @@ interface DataState {
     fun loading()
     fun error(error: String)
     fun <T> success(message: T? = null)
-    fun waiting()
 }
 
 fun randomNumberGen(): Int {

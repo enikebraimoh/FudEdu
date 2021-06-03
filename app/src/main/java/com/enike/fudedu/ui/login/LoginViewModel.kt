@@ -35,11 +35,12 @@ class LoginViewModel : ViewModel() {
 
 
     fun login() {
-        mDatastate?.let { datastate ->
-            datastate.loading()
+
             if (verifyEmail()) {
                 if (verifyPassword()) {
-                    firebaseAuth.signInWithEmailAndPassword(email!!, password!!)
+                    mDatastate?.let { datastate ->
+                        datastate.loading()
+                        firebaseAuth.signInWithEmailAndPassword(email!!, password!!)
                             .addOnCompleteListener() { task ->
                                 if (task.isSuccessful) {
                                     Log.d("eshoo", "signInUserWithEmail:success")
@@ -49,11 +50,7 @@ class LoginViewModel : ViewModel() {
                                     Log.d("eshoo", "signInUserWithEmail:failure", task.exception)
                                 }
                             }
-                } else {
-                    datastate.waiting()
-                }
-            } else {
-                datastate.waiting()
+                    }
             }
         }
     }

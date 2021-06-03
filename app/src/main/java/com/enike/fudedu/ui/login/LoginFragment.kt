@@ -61,11 +61,6 @@ class LoginFragment : Fragment(), DataState {
         binding.spinKit.visibility = View.VISIBLE
     }
 
-    override fun waiting() {
-        binding.spinKit.visibility = View.INVISIBLE
-        binding.loginbtn.visibility = View.VISIBLE
-    }
-
     override fun error(error: String) {
         binding.spinKit.visibility = View.INVISIBLE
         binding.loginbtn.visibility = View.VISIBLE

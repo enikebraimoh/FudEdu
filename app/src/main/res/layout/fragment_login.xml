@@ -39,7 +39,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/email"
-                    verify_email="@{viewModel.emailError}"
+                    verify_field="@{viewModel.emailError}"
                     style="@style/Widget.FudEdu.EditTextFields"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/password"
-                    verify_password="@{viewModel.passwordError}"
+                    verify_field="@{viewModel.passwordError}"
                     style="@style/Widget.FudEdu.EditTextFields"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

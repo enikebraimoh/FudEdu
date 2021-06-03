@@ -1,12 +1,10 @@
-package com.enike.fudedu.ui.studentReg
+package com.enike.fudedu.ui.lecturerReg
 
-import android.app.Application
 import android.util.Log
-import android.widget.ArrayAdapter
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.enike.fudedu.R
+import androidx.lifecycle.ViewModel
+import com.enike.fudedu.network.models.LecturerDetailsModel
 import com.enike.fudedu.network.models.StudentsModel
 import com.enike.fudedu.utils.DataState
 import com.google.firebase.auth.FirebaseAuth
@@ -14,8 +12,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
-class StudentRegViewModel(application: Application) : AndroidViewModel(application) {
-
+class LecturerRegViewModel : ViewModel() {
     // database initialization
     private val userAuth: FirebaseAuth by lazy {
         FirebaseAuth.getInstance()
@@ -23,51 +20,31 @@ class StudentRegViewModel(application: Application) : AndroidViewModel(applicati
     private var database: DatabaseReference = Firebase.database.reference
 
     //error live data
-    private val _groupCodeError = MutableLiveData<String>()
-    val groupCodeError: LiveData<String> get() = _groupCodeError
-    private val _emailError = MutableLiveData<String>()
-    val emailError: LiveData<String> get() = _emailError
-    private val _passwordError = MutableLiveData<String>()
-    val passwordError: LiveData<String> get() = _passwordError
-    private val _confirmPasswordError = MutableLiveData<String>()
-    val confirmPasswordError: LiveData<String> get() = _confirmPasswordError
     private val _firstNameError = MutableLiveData<String>()
     val firstNameError: LiveData<String> get() = _firstNameError
     private val _lastNameError = MutableLiveData<String>()
     val lastNameError: LiveData<String> get() = _lastNameError
     private val _phoneNumberError = MutableLiveData<String>()
     val phoneNumberError: LiveData<String> get() = _phoneNumberError
-    private val _departmentError = MutableLiveData<String>()
-    val departmentError: LiveData<String> get() = _departmentError
+    private val _emailError = MutableLiveData<String>()
+    val emailError: LiveData<String> get() = _emailError
     private val _genderError = MutableLiveData<String>()
     val genderError: LiveData<String> get() = _genderError
-    private val _facultyError = MutableLiveData<String>()
-    val facultyError: LiveData<String> get() = _facultyError
-
-
-    // Dropdown adapters
-    val selectGender = application.resources.getStringArray(R.array.Gender)
-    val faculties = application.resources.getStringArray(R.array.Faculties)
-    val genderArrayAdapter =
-        ArrayAdapter(application.applicationContext, R.layout.dropdown_item, selectGender)
-    val facultyArrayAdapter =
-        ArrayAdapter(application.applicationContext, R.layout.dropdown_item, faculties)
+    private val _passwordError = MutableLiveData<String>()
+    val passwordError: LiveData<String> get() = _passwordError
+    private val _confirmPasswordError = MutableLiveData<String>()
+    val confirmPasswordError: LiveData<String> get() = _confirmPasswordError
 
     // input fields
-    var groupcode: String? = null
+    var dataState: DataState? = null
     var firstname: String? = null
     var lastname: String? = null
     var phonenumber: String? = null
     var email: String? = null
     var gender: String? = null
-    var faculty: String? = null
-    var department: String? = null
     var password: String? = null
     var confirmPassword: String? = null
 
-    var dataState: DataState? = null
-
-    // Validation Functions
     private fun verifyEmail(): Boolean {
         return if (email == "" || email == null) {
             _emailError.value = "field must not be blank"
@@ -156,16 +133,6 @@ class StudentRegViewModel(application: Application) : AndroidViewModel(applicati
 
     }
 
-    private fun validateDepartment(): Boolean {
-        return if (department == "" || department == null) {
-            _departmentError.value = "this field cannot be left blank"
-            false
-        } else {
-            _departmentError.value = null
-            true
-        }
-    }
-
     private fun validateGender(): Boolean {
         return if (gender == null || gender == "") {
             _genderError.value = "select your Gender"
@@ -176,41 +143,15 @@ class StudentRegViewModel(application: Application) : AndroidViewModel(applicati
         }
     }
 
-    private fun validateFaculty(): Boolean {
-        return if (faculty == null || faculty == "") {
-            _facultyError.value = "select your Faculty"
-            false
-        } else {
-            _facultyError.value = null
-            true
-        }
-    }
-
-    private fun validateGroupCode(): Boolean {
-        return if (groupcode == null || groupcode == "") {
-            _groupCodeError.value = "please input a group code given by your lecturer"
-            false
-        } else {
-            _groupCodeError.value = null
-            true
-        }
-    }
-
     fun registerButton() {
-        if (validateGroupCode()) {
-            if (validateFirstName()) {
-                if (validateLastName()) {
-                    if (validatePhoneNUmber()) {
-                        if (verifyEmail()) {
-                            if (validateGender()) {
-                                if (validateFaculty()) {
-                                    if (validateDepartment()) {
-                                        if (verifyPassword()) {
-                                            if (confirmPassword()) {
-                                                databaseOperation()
-                                            }
-                                        }
-                                    }
+        if (validateFirstName()) {
+            if (validateLastName()) {
+                if (validatePhoneNUmber()) {
+                    if (verifyEmail()) {
+                        if (validateGender()) {
+                            if (verifyPassword()) {
+                                if (confirmPassword()) {
+                                    databaseOperations()
                                 }
                             }
                         }
@@ -220,28 +161,20 @@ class StudentRegViewModel(application: Application) : AndroidViewModel(applicati
         }
     }
 
-    fun databaseOperation() {
+    fun databaseOperations() {
         dataState?.let { dataState ->
             dataState.loading()
-            val model = StudentsModel(
-                phonenumber!!,
-                firstname!!,
-                lastname!!,
-                email!!,
-                gender!!,
-                faculty!!,
-                department!!,
-                password!!
+            val model = LecturerDetailsModel(
+                phonenumber!!, firstname!!, lastname!!, email!!, gender!!, password!!
             )
 
             userAuth.createUserWithEmailAndPassword(email!!, password!!)
                 .addOnCompleteListener() { task ->
                     if (task.isSuccessful) {
                         Log.d("eshoo", "createUserWithEmail:success")
-                        database.child("Students Information")
+                        database.child("Lecturers Information")
                             .child(userAuth.currentUser?.uid!!).setValue(model)
                         dataState.success("Account created Successfully")
-
                     } else {
                         Log.d("eshoo", "createUserWithEmail:failure", task.exception)
                         dataState.error(task.exception?.localizedMessage!!)
@@ -249,5 +182,6 @@ class StudentRegViewModel(application: Application) : AndroidViewModel(applicati
                 }
         }
     }
+
 
 }
