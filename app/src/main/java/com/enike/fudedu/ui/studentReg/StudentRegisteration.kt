@@ -41,10 +41,6 @@ class StudentRegisteration : Fragment(), DataState {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
-        binding.toolbar.setNavigationOnClickListener { view ->
-            binding.toolbar.findNavController()?.popBackStack()
-        }
 
     }
 

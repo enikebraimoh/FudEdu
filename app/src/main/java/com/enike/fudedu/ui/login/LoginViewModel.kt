@@ -1,5 +1,6 @@
 package com.enike.fudedu.ui.login
 
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -19,6 +20,7 @@ class LoginViewModel : ViewModel() {
     var password: String? = null
     var mDatastate: DataState? = null
 
+
     // database Init
     private val database: DatabaseReference by lazy {
         Firebase.database.reference
@@ -33,16 +35,23 @@ class LoginViewModel : ViewModel() {
     private val _emailError = MutableLiveData<String>()
     val emailError: LiveData<String> get() = _emailError
 
+    val _loggedIn = MutableLiveData<Boolean>()
+    val loggedIn: LiveData<Boolean> get() = _loggedIn
+
+
+    fun loggedIn() {
+        _loggedIn.value = firebaseAuth.currentUser != null
+    }
+
 
     fun login() {
-
-            if (verifyEmail()) {
-                if (verifyPassword()) {
-                    mDatastate?.let { datastate ->
-                        datastate.loading()
-                        firebaseAuth.signInWithEmailAndPassword(email!!, password!!)
-                            .addOnCompleteListener() { task ->
-                                if (task.isSuccessful) {
+        if (verifyEmail()) {
+            if (verifyPassword()) {
+                mDatastate?.let { datastate ->
+                    datastate.loading()
+                    firebaseAuth.signInWithEmailAndPassword(email!!, password!!)
+                        .addOnCompleteListener() { task ->
+                            if (task.isSuccessful) {
                                     Log.d("eshoo", "signInUserWithEmail:success")
                                     whoAreYou(firebaseAuth.currentUser.uid)
                                 } else {
@@ -56,6 +65,7 @@ class LoginViewModel : ViewModel() {
     }
 
     private fun whoAreYou(id: String) {
+        val none: DataState? = null
         Log.d("eshoo", "am in whoAreYou method")
         mDatastate?.let { datastate ->
             database.child("Lecturers Information").addValueEventListener(object :
@@ -63,12 +73,15 @@ class LoginViewModel : ViewModel() {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     for (postSnapshot in dataSnapshot.children) {
                         if (dataSnapshot.hasChild(id)) {
+
                             // you are a Lecturer
-                            datastate.success("Good Day Lecturer")
+                            datastate.success("Lecturer")
+
                             break
                         } else {
+
                             // you are a Student
-                            datastate.success("Welcome Back Student")
+                            datastate.success("Student")
                             break
                         }
                     }

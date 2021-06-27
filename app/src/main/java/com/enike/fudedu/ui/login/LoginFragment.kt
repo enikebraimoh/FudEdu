@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.enike.fudedu.R
 import com.enike.fudedu.utils.DataState
 import com.enike.fudedu.databinding.FragmentLoginBinding
@@ -33,28 +36,47 @@ class LoginFragment : Fragment(), DataState {
         binding.lifecycleOwner = this
         model.mDatastate = this
 
+        model.loggedIn()
+        model.loggedIn.observe(viewLifecycleOwner, { Obj ->
+            if (Obj == true) {
+                model._loggedIn.value = false
+                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
+            }
+        })
+
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+
+
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // for testing purpose
+//        val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
+//        binding.iAmAStudent.findNavController().navigate(action)
+
 
         binding.iAmALecturer.setOnClickListener {
             val action = LoginFragmentDirections.actionLoginFragmentToLecturerRegisteration()
             binding.iAmALecturer.findNavController().navigate(action)
         }
 
-        binding.iAmAStudent.setOnClickListener {
+        binding.iAmAStudent.setOnClickListener { view ->
             val action = LoginFragmentDirections.actionLoginFragmentToRegisteration()
-            binding.iAmAStudent.findNavController().navigate(action)
+            view.findNavController().navigate(action)
         }
     }
 
 
     private fun showSnackBar(message: String) {
-        Snackbar.make(requireContext(), binding.root, message, Snackbar.LENGTH_LONG).show()
+        Snackbar.make(requireActivity(), binding.root, message, Snackbar.LENGTH_LONG).show()
     }
+
 
     override fun loading() {
         binding.loginbtn.visibility = View.INVISIBLE
@@ -69,8 +91,13 @@ class LoginFragment : Fragment(), DataState {
 
     override fun <T> success(message: T?) {
         val msg = message as String
+        if (message == "Student") {
+
+        }
         binding.spinKit.visibility = View.INVISIBLE
         binding.loginbtn.visibility = View.VISIBLE
-        showSnackBar(msg)
+        //showSnackBar(msg)
+        val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
+        binding.iAmAStudent.findNavController().navigate(action)
     }
 }

@@ -15,29 +15,6 @@
         android:layout_height="match_parent"
         tools:context=".ui.studentReg.StudentRegisteration">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:titleTextColor="@android:color/white">
-
-            <TextView
-                style="@style/TextAppearance.AppCompat.Menu"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/opensans_semibold"
-                android:gravity="center"
-                android:text="@string/sign_up_as_a_student"
-                android:textColor="@android:color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.appcompat.widget.Toolbar>
 
         <ScrollView
             android:id="@+id/scrollview"
@@ -47,7 +24,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -56,9 +33,9 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/groupcode"
                     style="@style/Widget.FudEdu.EditTextFields"
+                    verify_field="@{viewModel.groupCodeError}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    verify_field="@{viewModel.groupCodeError}"
                     android:layout_marginTop="15dp"
                     android:hint="Group Code"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -67,19 +44,19 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:text="@={viewModel.groupcode}"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
                         android:inputType="number"
                         android:padding="15dp"
-                        android:singleLine="true" />
+                        android:singleLine="true"
+                        android:text="@={viewModel.groupcode}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/phonenumber"
-                    verify_field="@{viewModel.phoneNumberError}"
                     style="@style/Widget.FudEdu.EditTextFields"
+                    verify_field="@{viewModel.phoneNumberError}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
@@ -90,20 +67,20 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/phonenumberfield"
-                        android:text="@={viewModel.phonenumber}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
                         android:inputType="phone"
                         android:padding="15dp"
-                        android:singleLine="true" />
+                        android:singleLine="true"
+                        android:text="@={viewModel.phonenumber}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/firstname"
-                    verify_field="@{viewModel.firstNameError}"
                     style="@style/Widget.FudEdu.EditTextFields"
+                    verify_field="@{viewModel.firstNameError}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
@@ -114,19 +91,19 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/firstnamefield"
-                        android:text="@={viewModel.firstname}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
                         android:padding="15dp"
-                        android:singleLine="true" />
+                        android:singleLine="true"
+                        android:text="@={viewModel.firstname}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/lastName"
-                    verify_field="@{viewModel.lastNameError}"
                     style="@style/Widget.FudEdu.EditTextFields"
+                    verify_field="@{viewModel.lastNameError}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
@@ -137,19 +114,19 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/lastnamefield"
-                        android:text="@={viewModel.lastname}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
                         android:padding="15dp"
-                        android:singleLine="true" />
+                        android:singleLine="true"
+                        android:text="@={viewModel.lastname}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/Email"
-                    verify_field="@{viewModel.emailError}"
                     style="@style/Widget.FudEdu.EditTextFields"
+                    verify_field="@{viewModel.emailError}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
@@ -160,20 +137,20 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/emailfield"
-                        android:text="@={viewModel.email}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
                         android:inputType="textEmailAddress"
                         android:padding="15dp"
-                        android:singleLine="true" />
+                        android:singleLine="true"
+                        android:text="@={viewModel.email}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/gender"
-                    verify_field="@{viewModel.genderError}"
                     style="@style/Widget.FudEdu.DropDown"
+                    verify_field="@{viewModel.genderError}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
@@ -183,23 +160,23 @@
                     app:layout_constraintTop_toBottomOf="@id/Email">
 
                     <AutoCompleteTextView
-                        selectGender="@{viewModel.genderArrayAdapter}"
-                        android:text="@={viewModel.gender}"
                         android:id="@+id/genderfield"
+                        selectGender="@{viewModel.genderArrayAdapter}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
                         android:hint="Gender"
                         android:inputType="none"
                         android:padding="15dp"
-                        android:singleLine="true" />
+                        android:singleLine="true"
+                        android:text="@={viewModel.gender}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/faculty"
-                    verify_field="@{viewModel.facultyError}"
                     style="@style/Widget.FudEdu.DropDown"
+                    verify_field="@{viewModel.facultyError}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -210,23 +187,23 @@
                     app:layout_constraintTop_toBottomOf="@id/Email">
 
                     <AutoCompleteTextView
-                        android:text="@={viewModel.faculty}"
-                        selectFaculty="@{viewModel.facultyArrayAdapter}"
                         android:id="@+id/facultyfield"
+                        selectFaculty="@{viewModel.facultyArrayAdapter}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
                         android:hint="Faculty"
                         android:inputType="none"
                         android:padding="15dp"
-                        android:singleLine="true" />
+                        android:singleLine="true"
+                        android:text="@={viewModel.faculty}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/department"
-                    verify_field="@{viewModel.departmentError}"
                     style="@style/Widget.FudEdu.EditTextFields"
+                    verify_field="@{viewModel.departmentError}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
@@ -237,19 +214,19 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/departmentfield"
-                        android:text="@={viewModel.department}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
                         android:padding="15dp"
-                        android:singleLine="true" />
+                        android:singleLine="true"
+                        android:text="@={viewModel.department}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/firstPassword"
-                    verify_field="@{viewModel.passwordError}"
                     style="@style/Widget.FudEdu.EditTextFields"
+                    verify_field="@{viewModel.passwordError}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
@@ -260,20 +237,20 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/passwordfield"
-                        android:text="@={viewModel.password}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
                         android:inputType="textPassword"
                         android:padding="15dp"
-                        android:singleLine="true" />
+                        android:singleLine="true"
+                        android:text="@={viewModel.password}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/confirmPassword"
-                    verify_field="@{viewModel.confirmPasswordError}"
                     style="@style/Widget.FudEdu.EditTextFields"
+                    verify_field="@{viewModel.confirmPasswordError}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
@@ -285,12 +262,12 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/confirmpasswordfield"
                         android:layout_width="match_parent"
-                        android:text="@={viewModel.confirmPassword}"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans_regular"
                         android:inputType="textPassword"
                         android:padding="15dp"
-                        android:singleLine="true" />
+                        android:singleLine="true"
+                        android:text="@={viewModel.confirmPassword}" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -309,13 +286,13 @@
                     app:layout_constraintTop_toTopOf="@+id/registerStudentsBnt" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:onClick="@{()-> viewModel.registerButton()}"
                     android:id="@+id/registerStudentsBnt"
                     style="@style/Widget.FudEdu.Button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     android:layout_marginBottom="20dp"
+                    android:onClick="@{()-> viewModel.registerButton()}"
                     android:padding="15dp"
                     android:text="@string/register"
                     android:textAllCaps="false"

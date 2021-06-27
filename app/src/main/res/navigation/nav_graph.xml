@@ -5,8 +5,8 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/loginFragment">
     <fragment
-        tools:layout="@layout/fragment_login"
         android:id="@+id/loginFragment"
+        tools:layout="@layout/fragment_login"
         android:name="com.enike.fudedu.ui.login.LoginFragment"
         android:label="@string/login">
         <action
@@ -17,7 +17,12 @@
             app:destination="@id/lecturerRegisteration" />
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_out"
+            app:popExitAnim="@android:anim/fade_in"
+            app:popUpTo="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/student_registeration"
@@ -43,5 +48,37 @@
         android:id="@+id/homeFragment"
         tools:layout="@layout/fragment_home"
         android:name="com.enike.fudedu.ui.home.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment">
+        <action
+            android:id="@+id/action_homeFragment_to_createNewClassFragment"
+            app:destination="@id/createNewClassFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/calenderFragment"
+        android:name="com.enike.fudedu.ui.callender.CalenderFragment"
+        android:label="fragment_calender"
+        tools:layout="@layout/fragment_calender" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.enike.fudedu.ui.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/action_settingsFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createNewClassFragment"
+        android:name="com.enike.fudedu.ui.createNewClass.CreateNewClassFragment"
+        android:label="create a new class"
+        tools:layout="@layout/fragment_create_new_class">
+        <action
+            android:id="@+id/action_createNewClassFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@android:anim/slide_out_right"
+            app:exitAnim="@android:anim/slide_in_left"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
 </navigation>
