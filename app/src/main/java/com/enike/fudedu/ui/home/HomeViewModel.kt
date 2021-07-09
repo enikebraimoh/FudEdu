@@ -2,6 +2,7 @@ package com.enike.fudedu.ui.home
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import com.enike.fudedu.ui.createNewClass.GroupModel
 import com.enike.fudedu.utils.DataState
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -13,6 +14,9 @@ import com.google.firebase.ktx.Firebase
 
 class HomeViewModel : ViewModel() {
 
+    init {
+        findUser()
+    }
     // database Init
     private val database: DatabaseReference by lazy {
         Firebase.database.reference
@@ -54,4 +58,5 @@ class HomeViewModel : ViewModel() {
             })
         }
     }
+
 }

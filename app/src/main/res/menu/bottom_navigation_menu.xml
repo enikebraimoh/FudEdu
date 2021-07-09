@@ -3,17 +3,23 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/homeFragment"
-        android:title="Class group"
+        android:title="Classes"
         android:enabled="true"
-        android:icon="@drawable/icon_message" />
+        android:icon="@drawable/ic_baseline_people_24" />
     <item
         android:id="@+id/calenderFragment"
         android:title="Calender"
         android:enabled="true"
         android:icon="@drawable/icon_calendar" />
     <item
+        android:id="@+id/messagesFragment"
+        android:title="messages"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_message_24"/>
+    <item
         android:id="@+id/settingsFragment"
         android:title="Settings"
         android:enabled="true"
-        android:icon="@drawable/icon_setting" />
+        android:icon="@drawable/icon_setting"/>
+
 </menu>

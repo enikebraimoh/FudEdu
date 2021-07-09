@@ -29,6 +29,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/createclass"
                     android:layout_weight="1"
                     android:text="Create a new Class"
                     android:layout_width="wrap_content"
@@ -48,8 +49,10 @@
             android:layout_height="wrap_content" />
 
         <androidx.recyclerview.widget.RecyclerView
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:id="@+id/class_groups_recyclerview"
             android:layout_width="match_parent"
+            tools:listitem="@layout/single_class_item"
             android:layout_height="match_parent" />
 
     </LinearLayout>

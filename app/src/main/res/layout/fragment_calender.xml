@@ -5,8 +5,28 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@color/blue_dark"
     tools:context=".ui.callender.CalenderFragment">
 
 
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/schedule"
+        style="@style/Widget.FudEdu.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:text="Set a Reminder"
+        android:textAllCaps="false"/>
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.FudEdu.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:text="Manage Time"
+        android:textAllCaps="false"/>
 </LinearLayout>

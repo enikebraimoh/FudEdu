@@ -1,7 +1,9 @@
 package com.enike.fudedu.ui.createNewClass
 
+import java.util.ArrayList
+
 data class GroupModel(
-    var groupName: String,
-    var groupDescription: String,
-    var groupCreator: String, var groupMembers: MutableList<String>
-)
+    val groupName: String,
+    var groupDescription: String ,
+    var groupCreator: String,
+    var groupMembers: ArrayList<String>)

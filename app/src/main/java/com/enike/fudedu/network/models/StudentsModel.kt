@@ -8,5 +8,6 @@ data class StudentsModel(
     val Gender: String,
     val Faculty: String,
     val Department: String,
-    val password: String
+    val password: String,
+    val groups: ArrayList<String>
 )

@@ -1,41 +1,33 @@
 {
   "project_info": {
-    "project_number": "228418829364",
-    "project_id": "fud-edu",
-    "storage_bucket": "fud-edu.appspot.com"
+    "project_number": "443275784614",
+    "project_id": "fud-edu-4900d",
+    "storage_bucket": "fud-edu-4900d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:228418829364:android:bfa29e688f15469bd31e61",
+        "mobilesdk_app_id": "1:443275784614:android:8051fc55692aa9a42a5f67",
         "android_client_info": {
           "package_name": "com.enike.fudedu"
         }
       },
       "oauth_client": [
         {
-          "client_id": "228418829364-ksvg75n4meeg64bim1ggonickkutdeur.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.enike.fudedu",
-            "certificate_hash": "4b0c4ff772357f0bb4bc6b046223e8ded085fc73"
-          }
-        },
-        {
-          "client_id": "228418829364-magsr8soedjl2em1ruc8p2chs09oi0ub.apps.googleusercontent.com",
+          "client_id": "443275784614-ormosmd61rhe9310i064ovphjr29v78k.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDTjlCwVS9lO7zB4vkjECgwIvL9UZ3z5YU"
+          "current_key": "AIzaSyDpLlOU0uquJliDEMqc0Jb9aZK5hfCmT8w"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "228418829364-magsr8soedjl2em1ruc8p2chs09oi0ub.apps.googleusercontent.com",
+              "client_id": "443275784614-ormosmd61rhe9310i064ovphjr29v78k.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

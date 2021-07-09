@@ -17,6 +17,7 @@
     <string name="register">Register</string>
     <string name="phone_number">Phone Number</string>
     <string name="home">Home</string>
+    <string name="class_group">Welcome to {className} Class</string>
 
     <string-array name="Faculties">
         <item> Computing </item>

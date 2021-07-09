@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="clicks"
+            type="com.enike.fudedu.ui.home.HomeAdapter.ClickListener" />
+        <variable
+            name="class_item"
+            type="com.enike.fudedu.ui.createNewClass.GroupModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:onClick="@{()->clicks.onCLick(class_item)}"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.08"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_people_24"
+                tools:ignore="VectorDrawableCompat" />
+
+            <TextView
+                tools:text="this is a simple description"
+                android:id="@+id/group_description"
+                android:layout_width="0dp"
+                android:fontFamily="@font/opensans_regular"
+                android:layout_height="wrap_content"
+                android:text="@{class_item.groupDescription}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/group_name"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/group_name"
+                app:layout_constraintTop_toBottomOf="@+id/group_name" />
+
+            <TextView
+                tools:text="CSC 404"
+                android:fontFamily="@font/opensans_semibold"
+                android:id="@+id/group_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="@{class_item.groupName}"
+                app:layout_constraintBottom_toTopOf="@+id/group_description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

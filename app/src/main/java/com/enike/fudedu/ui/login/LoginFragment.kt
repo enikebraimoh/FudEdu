@@ -27,10 +27,12 @@ class LoginFragment : Fragment(), DataState {
     }
 
     override fun onCreateView(
+
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container,
+            false)
         model = ViewModelProvider(this).get(LoginViewModel::class.java)
         binding.viewModel = model
         binding.lifecycleOwner = this
@@ -40,7 +42,8 @@ class LoginFragment : Fragment(), DataState {
         model.loggedIn.observe(viewLifecycleOwner, { Obj ->
             if (Obj == true) {
                 model._loggedIn.value = false
-                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
+                findNavController().navigate(LoginFragmentDirections
+                    .actionLoginFragmentToHomeFragment())
             }
         })
 

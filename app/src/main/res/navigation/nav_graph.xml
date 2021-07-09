@@ -52,6 +52,9 @@
         <action
             android:id="@+id/action_homeFragment_to_createNewClassFragment"
             app:destination="@id/createNewClassFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_groupChatFragment"
+            app:destination="@id/groupChatFragment" />
     </fragment>
     <fragment
         android:id="@+id/calenderFragment"
@@ -69,10 +72,10 @@
             app:popUpTo="@id/loginFragment" />
     </fragment>
     <fragment
+        tools:layout="@layout/fragment_group_chat"
         android:id="@+id/createNewClassFragment"
         android:name="com.enike.fudedu.ui.createNewClass.CreateNewClassFragment"
-        android:label="create a new class"
-        tools:layout="@layout/fragment_create_new_class">
+        android:label="back">
         <action
             android:id="@+id/action_createNewClassFragment_to_homeFragment"
             app:destination="@id/homeFragment"
@@ -80,5 +83,19 @@
             app:exitAnim="@android:anim/slide_in_left"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/messagesFragment"
+        android:name="com.enike.fudedu.ui.mesages.MessagesFragment"
+        android:label="fragment_messages"
+        tools:layout="@layout/fragment_messages" />
+    <fragment
+        android:id="@+id/groupChatFragment"
+        android:name="com.enike.fudedu.GroupChatFragment"
+        android:label="@string/class_group"
+        tools:layout="@layout/fragment_group_chat">
+        <argument
+            android:name="className"
+            app:argType="string" />
     </fragment>
 </navigation>

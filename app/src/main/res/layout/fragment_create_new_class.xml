@@ -84,7 +84,7 @@
                     app:layout_constraintTop_toTopOf="@+id/createbtn" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:onClick="@{()->model.createGroup()}"
+                    android:onClick="@{()->model.action()}"
                     android:id="@+id/createbtn"
                     style="@style/Widget.FudEdu.Button"
                     android:layout_width="match_parent"

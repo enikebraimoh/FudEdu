@@ -56,6 +56,10 @@ class MainActivity : AppCompatActivity() {
                     binding.bottomNavigation.visibility = View.VISIBLE
                     supportActionBar?.hide()
                 }
+                R.id.messagesFragment -> {
+                    binding.bottomNavigation.visibility = View.VISIBLE
+                    supportActionBar?.hide()
+                }
                 else -> {
                     binding.bottomNavigation.visibility = View.GONE
                     supportActionBar?.show()

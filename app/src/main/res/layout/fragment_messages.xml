@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.mesages.MessagesFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <androidx.cardview.widget.CardView
+        app:cardCornerRadius="15dp"
+        android:layout_gravity="start"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        app:cardBackgroundColor="#F1F1F1"
+        android:layout_width="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_height="wrap_content">
+  <LinearLayout
+      android:padding="20dp"
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:fontFamily="@font/opensans_semibold"
+          android:text="Eshofune Usman" />
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:fontFamily="@font/opensans_regular"
+          android:text="Hello good day am having issues with the assignment the lecturer gave us on the group, can you help me out?" />
+  </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_gravity="end"
+        app:cardCornerRadius="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        app:cardBackgroundColor="#F1F1F1"
+        android:layout_width="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:padding="20dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_semibold"
+                android:text="Me" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/opensans_regular"
+                android:text="i have not done mine either" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</LinearLayout>

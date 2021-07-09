@@ -24,4 +24,5 @@ fun selectGender(genderField: AutoCompleteTextView, gender: ArrayAdapter<String>
 @BindingAdapter("selectFaculty")
 fun selectFaculty(facultyField: AutoCompleteTextView, faculty: ArrayAdapter<String>) {
     facultyField.setAdapter(faculty)
+
 }

@@ -39,11 +39,6 @@ class StudentRegisteration : Fragment(), DataState {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-    }
-
     private fun showSnackBar(message: String) {
         Snackbar.make(requireContext(), binding.root, message, Snackbar.LENGTH_LONG).show()
     }

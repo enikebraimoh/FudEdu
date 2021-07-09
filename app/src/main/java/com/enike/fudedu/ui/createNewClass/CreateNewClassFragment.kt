@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.enike.fudedu.R
@@ -29,6 +30,17 @@ class CreateNewClassFragment : Fragment(), DataState {
         binding.model = viewmodel
         binding.lifecycleOwner = this
         viewmodel.dataState = this
+
+        viewmodel.user.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                if (it == "Student"){
+                    binding.description.visibility = View.GONE
+                    binding.descroptionfield.visibility = View.GONE
+                    binding.createbtn.text = "Join Class"
+
+                }
+            }
+        })
 
         return binding.root
     }
